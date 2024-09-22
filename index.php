@@ -7,6 +7,9 @@
     <title>Delivery</title>
 </head>
 <body>
+    <?php
+    print_r($_GET);
+    ?>
     
 </body>
 </html>
