@@ -1,15 +1,22 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delivery</title>
-</head>
-<body>
-    <?php
-    print_r($_GET);
-    ?>
-    
-</body>
-</html>
+<?php
+session_start();
+require_once("config.php");
+
+spl_autoload_register(function($class){
+
+    if (file_exists('controllers/'.$class.'.php')) {
+        require_once('controllers/'.$class.'.php');
+    }elseif (file_exists('models/'.$class.'.php')) {
+        require_once('models/'.$class.'.php');
+    }elseif (file_exists('core/'.$class.'.php')) {
+        require_once('core/'.$class.'.php');
+    }else{
+        echo "ops...";
+    }
+
+});
+
+$core = new Core();
+$core->run();
+
+?>
