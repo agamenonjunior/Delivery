@@ -8,5 +8,3 @@ class homeController{
         echo "Página de Depoimentos";
     }
 }
-
-echo  "<iframe src=\"https://google.com.br\" allow=\"geolocation\"/>geo</iframe>";
